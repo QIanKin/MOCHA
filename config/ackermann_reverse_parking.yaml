@@ -1,0 +1,114 @@
+exp1_reverse_parking:
+  # 结果输出目录。程序的 CSV、统计文件和绘图脚本生成的 PDF/PNG/GIF 都会落到这里。
+  output_dir: result/tro_exp1_ackermann_astar_guided
+
+  map:
+    # 栅格地图宽度，单位是格点数。
+    width: 240
+    # 栅格地图高度，单位是格点数。
+    height: 200
+    # 每个栅格的边长，单位 m。
+    resolution: 0.05
+    # 地图原点，单位 m。
+    origin: [0.0, 0.0]
+    # A* guide 规划时额外使用的膨胀半径，单位 m。
+    guide_inflation: 0.0
+    # 轴对齐矩形障碍物，格式为 [x0, y0, x1, y1]，单位 m。
+    obstacles:
+      - [3.8, 4.5, 4.5, 8.8]
+      - [7.5, 4.5, 8.2, 8.8]
+      - [3.8, 8.5, 8.2, 10.0]
+      - [0.5, 5.0, 3.3, 8.5]
+      - [8.7, 5.0, 11.5, 8.5]
+
+  sampling:
+    # 导出轨迹状态的采样周期，单位 s。
+    dt: 0.02
+
+  reference:
+    # VMC 参考点距离比例。值越大，参考点离起终点连线越远。
+    distance_ratio: 0.18
+    # 手动指定参考点在导引路径哪一侧。auto 表示由程序自动判断。
+    manual_side: auto
+
+  vehicle:
+    # 轴距，单位 m。
+    wheel_base: 0.60
+    # 车体碰撞点，使用车体系坐标 [x, y]，x 朝前，y 朝左，单位 m。
+    footprint_points:
+      - [0.45, 0.22]
+      - [0.45, -0.22]
+      - [-0.25, 0.22]
+      - [-0.25, -0.22]
+      - [0.45, 0.0]
+      - [-0.25, 0.0]
+
+  limits:
+    # 最大车速，单位 m/s。
+    v_max: 1.20
+    # 最大转角，单位 rad。
+    phi_max: 0.70
+    # 最大转角速度，单位 rad/s。
+    phi_dot_max: 1.40
+    # 最大纵向加速度，单位 m/s^2。
+    a_lon_max: 0.90
+    # 最大横向加速度，单位 m/s^2。
+    a_lat_max: 0.75
+    # 几何层伪速度下界，用于避免低速奇异性。
+    min_pseudo_speed: 0.28
+    # 边界切向量范数，用于约束起终端的几何层切向方向强度。
+    boundary_tangent_norm: 0.65
+
+  weights:
+    # 几何层高阶平滑项权重。
+    w_jerk: 1.0
+    # 总时长项权重。
+    w_time: 4.0
+    # 保持几何层靠近导引路径的权重。
+    w_distance: 140.0
+    # 伪速度下界约束的惩罚权重。
+    w_pseudo_speed: 2500.0
+    # 车速越界惩罚权重。
+    w_speed: 9000.0
+    # 转角越界惩罚权重。
+    w_steering: 9000.0
+    # 转角速度越界惩罚权重。
+    w_steering_rate: 30000.0
+    # 纵向加速度越界惩罚权重。
+    w_longitudinal_acc: 12000.0
+    # 横向加速度越界惩罚权重。
+    w_lateral_acc: 8000.0
+    # 障碍物碰撞惩罚权重。
+    w_obstacle: 7000.0
+    # 车体与障碍物之间的安全距离，单位 m。
+    safe_distance: 0.12
+    # 每段积分采样数。越大越精细，但优化更慢。
+    kappa: 12
+
+  phase1:
+    # 档位方向。1 表示前进，-1 表示倒车。
+    gear_sign: 1
+    # 起点位置，单位 m。
+    start: [2.0, 2.5]
+    # 终点位置，单位 m。
+    goal: [9.0, 2.5]
+    # 起点航向角，单位 rad。
+    start_yaw: 0.0
+    # 终点航向角，单位 rad。
+    goal_yaw: 0.0
+    # 轨迹段数。更多段数意味着更大自由度和更高优化开销。
+    segments: 3
+
+  phase2:
+    # 第二段倒车入库，因此 gear_sign = -1。
+    gear_sign: -1
+    # 起点位置，单位 m。
+    start: [9.0, 2.5]
+    # 终点位置，单位 m。
+    goal: [6.0, 7.0]
+    # 起点航向角，单位 rad。
+    start_yaw: 0.0
+    # 终点航向角，单位 rad。
+    goal_yaw: -1.5707963267948966
+    # 第二段轨迹段数。
+    segments: 3
