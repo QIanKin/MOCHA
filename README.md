@@ -2,15 +2,21 @@
 
 ### Exp. 1: Reverse Parking
 
-![Exp. 1 reverse parking](media/exp1_reverse_parking.gif)
+<p align="center">
+  <img src="media/exp1_reverse_parking.gif" alt="Exp. 1 reverse parking" width="560" />
+</p>
 
 ### Exp. 4: Dynamic Obstacle Avoidance
 
-![Exp. 4 dynamic obstacle avoidance](media/exp4_dynamic_obstacle.gif)
+<p align="center">
+  <img src="media/exp4_dynamic_obstacle.gif" alt="Exp. 4 dynamic obstacle avoidance" width="880" />
+</p>
 
 ### Physical Robot Experiment
 
-![Physical robot experiment](media/physical_robot_experiment.gif)
+<p align="center">
+  <img src="media/physical_robot_experiment.gif" alt="Physical robot experiment" width="560" />
+</p>
 
 This repository keeps only the core optimizer code, one Ackermann configuration example, and the media shown above. ROS nodes, launch files, experiment drivers, maps, result folders, and build outputs are intentionally removed.
 
