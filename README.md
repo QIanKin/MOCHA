@@ -8,8 +8,22 @@
 
 ### Exp. 4: Dynamic Obstacle Avoidance
 
+Dynamic obstacle avoidance
+
 <p align="center">
   <img src="media/exp4_dynamic_obstacle.gif" alt="Exp. 4 dynamic obstacle avoidance" width="880" />
+</p>
+
+Realtime obstacle avoidance
+
+<p align="center">
+  <img src="media/exp4_realtime_avoidance.gif" alt="Exp. 4 realtime obstacle avoidance" width="880" />
+</p>
+
+Two-UAV joint trajectory optimization
+
+<p align="center">
+  <img src="media/exp4_multi_uav_joint_optimization.gif" alt="Exp. 4 two-UAV joint trajectory optimization" width="880" />
 </p>
 
 ### Physical Robot Experiment
