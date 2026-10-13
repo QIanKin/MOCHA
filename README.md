@@ -37,7 +37,7 @@ Two-UAV joint trajectory optimization
 A person walks across the scene and then stops in the middle, blocking the central passage. The UAV takes the shorter path on the left.
 
 <p align="center">
-  <img src="media/physical_uav_person_stops_left_path.gif" alt="A person stops in the middle, and the UAV takes the shorter path on the left" width="880" />
+  <img src="media/physical_uav_person_stops_left_path.gif" alt="A person stops in the middle, and the UAV takes the shorter path on the left" width="560" />
 </p>
 
 #### Person Keeps Moving Left: Detour on the Right
@@ -45,7 +45,7 @@ A person walks across the scene and then stops in the middle, blocking the centr
 A person continues walking to the left, blocking the available passage on that side. The UAV detours around the right side to reach the goal.
 
 <p align="center">
-  <img src="media/physical_uav_person_moves_left_right_detour.gif" alt="A person keeps moving left, and the UAV detours around the right side to reach the goal" width="880" />
+  <img src="media/physical_uav_person_moves_left_right_detour.gif" alt="A person keeps moving left, and the UAV detours around the right side to reach the goal" width="560" />
 </p>
 
 This repository keeps only the core optimizer code, one Ackermann configuration example, and the media shown above. ROS nodes, launch files, experiment drivers, maps, result folders, and build outputs are intentionally removed.
